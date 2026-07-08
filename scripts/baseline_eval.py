@@ -1,7 +1,6 @@
 """
 Evaluates the BASE model (no adapter) with few-shot prompting -- the 
 "before fine-tuning" number, reported both overall and per difficulty tier.
-
 """
 import json
 import os
