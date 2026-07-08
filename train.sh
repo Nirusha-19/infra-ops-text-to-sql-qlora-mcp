@@ -1,7 +1,6 @@
-#!/bin/bash
 # Runs LoRA fine-tuning using MLX.
 # Usage: bash train.sh
-#
+
 # NOTE: mlx_lm's CLI flags occasionally change between versions.
 # If a flag below is rejected, run:  python -m mlx_lm.lora --help
 
