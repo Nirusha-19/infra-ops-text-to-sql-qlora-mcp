@@ -7,7 +7,6 @@ Generates train.jsonl, valid.jsonl, test.jsonl with three difficulty tiers:
 Each generated example is tagged with its tier so eval scripts can report
 accuracy per tier, not just one blended number.
 
-Run this after build_db.py.
 """
 import json
 import random
@@ -352,8 +351,7 @@ def main():
         for ex in test:
             f.write(json.dumps(to_chat_example(ex["question"], ex["sql"])) + "\n")
 
-    # our own eval scripts need question/sql/tier fields -- kept under a
-    # different filename so it never collides with mlx_lm's expectations
+    # our own eval scripts need question/sql/tier fields -- kept under a different filename so it never collides with mlx_lm's expectations
     with open(os.path.join(HERE, "held_out_eval.jsonl"), "w") as f:
         for ex in test:
             f.write(json.dumps(ex) + "\n")
