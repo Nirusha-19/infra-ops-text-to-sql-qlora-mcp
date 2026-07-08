@@ -1,6 +1,5 @@
 """
 Prints the before/after comparison, overall and per difficulty tier.
-Run after both baseline_eval.py and finetuned_eval.py.
 """
 import json
 import os
