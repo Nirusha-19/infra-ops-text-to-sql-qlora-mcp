@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+adapters/
+data/infra_ops.db
+data/train.jsonl
+data/valid.jsonl
+data/test.jsonl
+data/held_out_eval.jsonl
