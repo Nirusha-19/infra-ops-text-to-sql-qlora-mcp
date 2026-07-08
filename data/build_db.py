@@ -1,10 +1,3 @@
-"""
-Builds infra_ops.db: a 10-table synthetic engineering-operations database
-(teams, services, servers, resource usage, incidents, deployments,
-on-call shifts, service dependencies, alerts, config changes).
-
-Run this once, before generate_dataset.py.
-"""
 import sqlite3
 import random
 import os
