@@ -63,6 +63,7 @@ The largest gains are on hard-tier queries: subqueries, self-referencing joins, 
 
 ## 📁 Project Structure
 
+```
 infra-ops-text-to-sql-qlora-mcp/
 ├── README.md                    ← project documentation
 ├── requirements.txt              ← Python dependencies (mlx, mlx-lm, mcp)
@@ -80,6 +81,7 @@ infra-ops-text-to-sql-qlora-mcp/
 │   └── compare_results.py         ← prints the before and after comparison table
 └── mcp_server/
 └── server.py                  ← exposes the fine-tuned model as MCP tools
+```
 
 Running `data/build_db.py` and `data/generate_dataset.py` produces the database and dataset files locally. Running `train.sh` produces the trained adapter weights in `adapters/`. These generated files are not committed to the repository, since the project is fully reproducible from the source above.
 
@@ -87,7 +89,7 @@ Running `data/build_db.py` and `data/generate_dataset.py` produces the database 
 
 **Execution accuracy, not text matching:** correctness is measured by running the generated SQL and comparing actual results, not by comparing SQL text to a reference query. This avoids penalizing a differently worded but equally correct query, and avoids rewarding a similar-looking query that is actually wrong.
 
-**QLoRA fine tuning trains the model directly on the target schema and query patterns.** Measured on this project's own held-out test set, this improved hard-tier query accuracy from 20% (prompting alone) to 97%.
+**QLoRA fine-tuning trains the model directly on the target schema and query patterns.** Measured on this project's own held-out test set, this improved hard-tier query accuracy from 20% (prompting alone) to 97%.
 
 **Serving via MCP makes it callable live** by any MCP-compatible AI agent, not just runnable from a script. Tested with MCP Inspector.
 
@@ -118,7 +120,7 @@ python data/generate_dataset.py
 Establish the baseline, then fine-tune:
 ```bash
 python scripts/baseline_eval.py     # downloads the base model (about 4.5GB)
-bash train.sh                        # took about 5 hours on 16GB RAM in practice
+bash train.sh                       # took about 5 hours on 16GB RAM in practice
 ```
 
 Evaluate and compare:
@@ -157,7 +159,7 @@ None. This project runs entirely locally. No API keys, no cloud services, no ext
 
 ## 🔮 Future Work
 
-- Run a plain LoRA (8-bit, cloud GPU) comparison arm to directly measure the accuracy cost of 4-bit versus 8-bit quantization, rather than relying on published QLoRA benchmarks.
+- Run a plain LoRA (8-bit, cloud GPU) comparison arm to complete a three-way comparison against this project's existing base model and QLoRA results, showing specifically the accuracy cost of 4-bit versus 8-bit quantization.
 - Expand the hard-tier template set to test deeper multi-hop reasoning.
 
 ## 👩‍💻 Author
