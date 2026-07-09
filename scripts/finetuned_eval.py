@@ -1,6 +1,6 @@
 """
 Evaluates the FINE-TUNED model (base + LoRA adapter), zero-shot, reported
-both overall and per difficulty tier. Run this AFTER train.sh completes.
+both overall and per difficulty tier.
 """
 import json
 import os
