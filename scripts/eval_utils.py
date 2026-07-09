@@ -1,8 +1,8 @@
 """
 Execution-accuracy helpers, shared by baseline_eval.py and finetuned_eval.py.
-Instead of comparing generated SQL text to gold SQL text, we execute both
-and compare actual result sets -- this is how real text-to-SQL benchmarks
-(e.g. Spider) are scored.
+Instead of comparing generated SQL text to the correct SQL text, this module
+executes both queries and compares their actual result sets -- this is how
+real text-to-SQL benchmarks (e.g. Spider) are scored.
 """
 import sqlite3
 import re
