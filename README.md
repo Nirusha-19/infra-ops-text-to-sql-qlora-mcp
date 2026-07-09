@@ -37,9 +37,9 @@ The largest gains are on hard-tier queries: subqueries, self-referencing joins, 
 
 ## 🖥️ How It Works?
 
-**Database Build:** A script generates a 10-table engineering-operations database. The database contains 24 teams, 96 services, and 384 servers spread across 4 regions, along with incidents, deployments, alerts, on-call shifts, service dependencies, resource usage records, and configuration changes. All data is realistic, randomized, and reproducible.
+**Database Build:** This project defines a 10-table engineering-operations schema, populated by a script with 24 teams, 96 services, and 384 servers spread across 4 regions, along with incidents, deployments, alerts, on-call shifts, service dependencies, resource usage records, and configuration changes. All data is realistic, randomized, and reproducible.
 
-**Dataset Generation:** 63 hand-written SQL query templates, spanning 23 easy, 25 medium, and 15 hard patterns, are filled in with real entity values pulled directly from the database, producing 2,500 unique question and SQL pairs. Every single one is verified to execute correctly before training begins. The result is split into 1,875 for training, 250 for validation, and 375 held out for testing.
+**Dataset Generation:** 63 hand-written SQL query templates, spanning 23 easy, 25 medium, and 15 hard patterns, are filled in by a script using real entity values pulled directly from the database, producing 2,500 unique question and SQL pairs. Every single one is verified to execute correctly before training begins. The result is split into 1,875 for training, 250 for validation, and 375 held out for testing.
 
 **Baseline Evaluation:** The unmodified base model is tested on all 375 held-out questions using few-shot prompting, establishing the "before" results.
 
@@ -80,7 +80,7 @@ infra-ops-text-to-sql-qlora-mcp/
 │   ├── finetuned_results.json     ← saved fine-tuned accuracy results
 │   └── compare_results.py         ← prints the before and after comparison table
 └── mcp_server/
-└── server.py                  ← exposes the fine-tuned model as MCP tools
+    └── server.py                  ← exposes the fine-tuned model as MCP tools
 ```
 
 Running `data/build_db.py` and `data/generate_dataset.py` produces the database and dataset files locally. Running `train.sh` produces the trained adapter weights in `adapters/`. These generated files are not committed to the repository, since the project is fully reproducible from the source above.
