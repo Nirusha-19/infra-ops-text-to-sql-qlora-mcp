@@ -166,7 +166,7 @@ None. This project runs entirely locally. No API keys, no cloud services, no ext
 
 Nirusha Mantralaya Ramesh
 
-🐙 GitHub: Nirusha-19
+🔗 GitHub: Nirusha-19
 
 ## 📄 License
 
